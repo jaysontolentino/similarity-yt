@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar'
+import Providers from '@/components/Providers'
 import '@/styles/globals.css'
 import { cn } from '@/utils/utils'
 import { Inter } from 'next/font/google'
@@ -14,9 +16,12 @@ export default function RootLayout({
       'bg-white text-slate-900 antialiased', inter.className
     )}>
       <body className='min-h-screen bg-slate-50 dark:bg-slate-900 antialiased'>
-        
-        {children}
-        </body>
+        <Providers>{children}</Providers>
+
+        {/* @ts-expect-error Server Component*/}
+        <Navbar />
+        <div className="h-40 md:hidden"></div>
+      </body>
     </html>
   )
 }
